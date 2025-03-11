@@ -22,7 +22,7 @@ LNG = -1.4239983439328177
 A simple social battery, you can increase your social battery by pressing `up` for when you are happy to socialise, or decrease it by pressing `down` when you feel less sociable. There are 5 different charge levels to choose from.
 
 ## [WiFi](/examples/wifi.py)
-A simple app which creates w WiFi access point on your Badger2040W so you can input the SSID and PSK of a new network by [dawidrylko](https://github.com/dawidrylko/badger2040).
+A simple app which creates w WiFi access point on your Badger2040W so you can input the SSID and PSK of a new network by [dawidrylko](https://github.com/dawidrylko/badger2040). The WiFi code carries the [MIT Licence](https://github.com/makew0rld/wordle-badger2040).
 
 Just make sure to set your region in the python script:
 ```
