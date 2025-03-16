@@ -1,5 +1,4 @@
 import badger2040
-import network
 import urequests
 import time
 
@@ -9,8 +8,14 @@ STATS_URL = "http://192.168.1.61:5000/stats"  # Update with your computer's IP
 # Initialize Badger2040
 badger = badger2040.Badger2040()
 badger.set_update_speed(badger2040.UPDATE_NORMAL)
+badger.led(128)  # Enable backlight for visibility
 
-# Helper function for memory progress bar
+# Use the Badger's pre-configured Wi-Fi connection
+print("Connecting to Wi-Fi using saved configuration...")
+badger.connect()
+print("Connected to Wi-Fi!")
+
+# Helper function for progress bars
 def draw_progress_bar(x, y, width, height, percentage, fill_color=0, empty_color=10):
     total_blocks = 10
     block_width = width // total_blocks  # Divide the width into equal parts
@@ -30,7 +35,7 @@ def draw_progress_bar(x, y, width, height, percentage, fill_color=0, empty_color
 while True:
     try:
         print("Fetching stats...")
-        response = urequests.get(STATS_URL)
+        response = urequests.get(STATS_URL, timeout=10)  # Add timeout for robustness
         if response.status_code == 200:
             stats = response.json()
             print("Stats received:", stats)
