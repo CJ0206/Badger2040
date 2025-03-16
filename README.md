@@ -71,7 +71,7 @@ In the Badger2040W's code youwill need to update the IP addreeess of your Raspbe
 STATS_URL = "http://192.168.1.61:5000/stats"  # Update with your computer's IP
 ```
 
-The badge will show something similar to the below, the stats will update every 15 seconds (this can be updated on line 71 `time.sleep(15)`):
+The badge will show something similar to the below, the stats will update every 15 seconds (this can be updated on line 76 `time.sleep(15)`):
 ```
 SoC Temp: 47.7C
 
