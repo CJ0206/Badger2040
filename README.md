@@ -43,7 +43,6 @@ A simple app which extends the [default badge example](https://github.com/pimoro
 Simply upload your multiple `.txt` profiles and matching `.png` or `.jpg` to the existing `/badges` directory. Please note the text and image file names must match.
 
 ## [Wordle](/examples/wordle.py)
-
 A fork from [makew0rld](https://github.com/makew0rld/wordle-badger2040) and lightly updated to run on the latest version of the picographics library. The Wordle code carries the [MIT Licence](https://github.com/makew0rld/wordle-badger2040).
 
 You will need to download [winners.txt](/examples/winners.txt), and [all_words.txt](/examples/all_words.txt) to your examples folder along with the python script in order to play.
@@ -52,3 +51,33 @@ How to play:
 1. Use the *B* and *C* buttons to cycle through the alphabet.
 2. Use the arrow buttons to move between squares.
 3. Press the *A* button to submit a word.
+
+## [Stats](/examples/stats.py)
+A simple app which can show your SoC temperature, memory usage, and disk usage of a Raspberry Pi wirelessly.
+
+This app requires you to run a [server](/etc/server.py) on your Raspberry Pi, to get this code to work you may need to install `flask` (to run the server) and `psutil` (to retrieve the stats):
+```
+sudo apt update
+sudo apt install python3-flask python3-psutil
+```
+
+Simply start the server with:
+```
+python3 server.py
+```
+
+In the Badger2040W's code youwill need to update the IP addreeess of your Raspberry Pi:
+```
+STATS_URL = "http://192.168.1.61:5000/stats"  # Update with your computer's IP
+```
+
+The badge will show something similar to the below, the stats will update every 15 seconds (this can be updated on line 71 `time.sleep(15)`):
+```
+SoC Temp: 47.7C
+
+Memory: 2667.0MB /8048.3MB
+███▒▒▒▒▒▒▒ 33.1%
+
+Disk: 5.9GB /28.5GB
+██▒▒▒▒▒▒▒▒ 20.7%
+```
